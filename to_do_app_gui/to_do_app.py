@@ -70,7 +70,7 @@ class ToDoApp:
         self.load_tasks()
 
     def sort_tasks(self):
-        sort_by = simpledialog.askstring("Sort By", "Sort tasks by (Priority, 'Due Date', or 'Creation Date')?", parent=self.root)
+        sort_by = simpledialog.askstring("Sort By", "Sort tasks by ('Priority', 'Due Date', or 'Creation Date')?", parent=self.root)
         if sort_by:
             sort_by = sort_by.lower()
             if sort_by == 'priority':
