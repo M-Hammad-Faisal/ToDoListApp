@@ -1,6 +1,7 @@
-import os
+import datetime
 import pickle
-
+import os
+from .task import Task
 
 class TaskManager:
     def __init__(self, filename="tasks.pkl"):
@@ -23,9 +24,9 @@ class TaskManager:
     def sort_tasks(self, by="priority"):
         if by == "priority":
             self.tasks.sort(key=lambda task: task.priority)
-        elif by == "due_date":
-            self.tasks.sort(key=lambda task: task.due_date if task.due_date is not None else "")
-        elif by == "creation_date":
+        elif by == "due date":
+            self.tasks.sort(key=lambda task: task.due_date if task.due_date else datetime.max)
+        elif by == "creation date":
             self.tasks.sort(key=lambda task: task.creation_date)
         self.save_tasks()
 
