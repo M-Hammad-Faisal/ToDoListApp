@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 class Task:
     def __init__(self, title, description=None, priority=0, due_date=None):
         self.title = title
@@ -12,6 +11,10 @@ class Task:
 
     def mark_complete(self):
         self.is_complete = True
+
+    @property
+    def status(self):
+        return "Complete" if self.is_complete else "Incomplete"
 
     def __str__(self):
         return f"""
